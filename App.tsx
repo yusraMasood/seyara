@@ -11,14 +11,24 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import RichTextEditorScreen from './src/component/TextEditor';
+import { useEffect } from 'react';
+import { requestStoragePermission } from './src/utils/helpers';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
+  const getPermissions = async () => {
+    await requestStoragePermission()
+  }
+  useEffect(() => {
+    getPermissions()
+  }, [])
+
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <RichTextEditorScreen />
     </SafeAreaProvider>
   );
 }
