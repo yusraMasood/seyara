@@ -24,26 +24,24 @@ export const useRichTextController = () => {
     setModals((prev) => ({ ...prev, [key]: visible }));
   }, []);
 
-  const wrapSelectionWithStyle = useCallback((style: string) => {
-    richRef.current?.commandDOM(`
-      (function(){
-        var sel = window.getSelection && window.getSelection();
-        if (!sel || !sel.rangeCount) return;
-        var range = sel.getRangeAt(0);
-        var wrapper = document.createElement('span');
-        wrapper.setAttribute('style', ${JSON.stringify(style)});
-        var contents = range.extractContents();
-        wrapper.appendChild(contents);
-        range.insertNode(wrapper);
-        range.setStartAfter(wrapper);
-        range.setEndAfter(wrapper);
-        sel.removeAllRanges();
-        sel.addRange(range);
-      })();
-    `);
-    richRef.current?.focusContentEditor();
-  }, []);
-
+	const wrapSelectionWithStyle = useCallback((style: string) => {
+		richRef.current?.commandDOM(`
+			(function(){
+				var sel = window.getSelection();
+				if (!sel || !sel.rangeCount) return;
+				var range = sel.getRangeAt(0);
+				if (range.collapsed) return;
+	
+				var wrapper = document.createElement('span');
+				wrapper.setAttribute('style', "${style}");
+	
+				range.surroundContents(wrapper);
+				sel.removeAllRanges();
+				sel.addRange(range);
+			})();
+		`);
+		richRef.current?.focusContentEditor();
+	}, []);
   const onSetTextColor = useCallback((color: string) => {
     setSelectedColor(color);
     richRef.current?.setForeColor(color);
@@ -51,15 +49,17 @@ export const useRichTextController = () => {
     toggleModal("color", false);
   }, [toggleModal]);
 
-  const onSetFontFamily = useCallback((font: string) => {
-    setSelectedFont(font);
-    wrapSelectionWithStyle(`font-family: '${font}', sans-serif;`);
-  }, [wrapSelectionWithStyle]);
-
-  const onSetFontSize = useCallback((size: number) => {
-    setSelectedFontSize(size);
-    wrapSelectionWithStyle(`font-size: ${size}px;`);
-  }, [wrapSelectionWithStyle]);
+	const onSetFontFamily = useCallback((font: string) => {
+		setSelectedFont(font);
+		wrapSelectionWithStyle(`font-family: '${font}', sans-serif;`);
+		toggleModal("font", false);
+	}, [wrapSelectionWithStyle]);
+	
+	const onSetFontSize = useCallback((size: number) => {
+		setSelectedFontSize(size);
+		wrapSelectionWithStyle(`font-size: ${size}px;`);
+		toggleModal("fontSize", false);
+	}, [wrapSelectionWithStyle]);
 
   return {
     richRef,

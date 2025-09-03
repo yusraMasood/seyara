@@ -66,13 +66,16 @@ export default function RichTextEditorScreen() {
         {/* Editor */}
         <ViewShot ref={ctrl.viewShotRef} style={styles.editorCard}>
           <RichEditor
-            key={ctrl.selectedFont}
             ref={ctrl.richRef}
             style={styles.editor}
             placeholder="Start typing…"
             initialContentHTML={ctrl.html}
             editorStyle={{
-              contentCSSText: `font-family: '${ctrl.selectedFont}', sans-serif;`,
+              contentCSSText: `
+      font-family: '${ctrl.selectedFont}', sans-serif;
+      font-size: ${ctrl.selectedFontSize}px;
+      line-height: 1.5;
+    `,
               backgroundColor: colors.white,
               color: colors.black,
               placeholderColor: "#9aa3ac",
@@ -87,24 +90,24 @@ export default function RichTextEditorScreen() {
           <BUTTON label="Save as PNG" onPress={() => saveAsImage(ctrl.viewShotRef)} />
           <BUTTON label="Save as PDF" onPress={() => createPdfWithHTML(ctrl.html)} />
         </View>
-
-        {/* Modals */}
-        <ColorPickerModal
-          visible={ctrl.modals.color}
-          onClose={() => ctrl.toggleModal("color", false)}
-          onSelectColor={ctrl.onSetTextColor}
-        />
-        <FontPickerModal
-          visible={ctrl.modals.font}
-          onClose={() => ctrl.toggleModal("font", false)}
-          onSelectFont={ctrl.onSetFontFamily}
-        />
-        <FontSizePickerModal
-          visible={ctrl.modals.fontSize}
-          onClose={() => ctrl.toggleModal("fontSize", false)}
-          onSelectSize={ctrl.onSetFontSize}
-        />
       </ScrollView>
+      {/* Modals */}
+      <ColorPickerModal
+        visible={ctrl.modals.color}
+        onClose={() => ctrl.toggleModal("color", false)}
+        onSelectColor={ctrl.onSetTextColor}
+      />
+      <FontPickerModal
+        visible={ctrl.modals.font}
+        onClose={() => ctrl.toggleModal("font", false)}
+        onSelectFont={ctrl.onSetFontFamily}
+      />
+      <FontSizePickerModal
+        visible={ctrl.modals.fontSize}
+        onClose={() => ctrl.toggleModal("fontSize", false)}
+        onSelectSize={ctrl.onSetFontSize}
+      />
+
     </KeyboardAvoidingView>
   );
 }
@@ -127,6 +130,7 @@ const styles = StyleSheet.create({
     gap: vw * 3,
     paddingHorizontal: vw * 8,
     paddingTop: vh * 2,
+    marginBottom: vh * 40
   },
   toolbarWrapper: {
     marginTop: vh * 1.2,

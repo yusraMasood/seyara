@@ -8,23 +8,31 @@ import { launchImageLibrary } from "react-native-image-picker";
 export const injectFont = async (richRef: any) => {
   const fontPath =
     Platform.OS === "ios"
-      ? `${RNFS.MainBundlePath}/assets/fonts/JameelNooriNastaleeqKasheeda.ttf`
+      ? `${RNFS.MainBundlePath}/JameelNooriNastaleeqKasheeda.ttf`
       : `file:///android_asset/fonts/JameelNooriNastaleeqKasheeda.ttf`;
 
   const css = `
     @font-face {
       font-family: 'Jameel';
-      src: url('${fontPath}');
+      src: url('${fontPath}') format('truetype');
+      font-weight: normal;
+      font-style: normal;
     }
     body, p, span, div {
-      font-family: 'Jameel' !important;
+      font-family: 'Jameel';
     }
   `;
 
   richRef.current?.commandDOM(`
-    var style = document.createElement('style');
-    style.innerHTML = \`${css}\`;
-    document.head.appendChild(style);
+    (function() {
+      var style = document.getElementById("custom-font-style");
+      if (!style) {
+        style = document.createElement('style');
+        style.id = "custom-font-style";
+        document.head.appendChild(style);
+      }
+      style.innerHTML = \`${css}\`;
+    })();
   `);
 };
 
