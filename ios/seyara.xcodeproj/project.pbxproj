@@ -12,6 +12,13 @@
 		67AD22BE18C0DE14211F0D21 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C0B57384E5B04BBF9BD425EF /* Pak Nastaleeq Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A461407F739B436F9C632A56 /* Pak Nastaleeq Regular.otf */; };
+		5619417E123346C09AA0AB57 /* AA Sameer Almas Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5562BE5074FB4881A4D4F08B /* AA Sameer Almas Regular.ttf */; };
+		66646746BA3E4A93B7A23DDF /* Alvi Nastaleeq Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F16E45388AB4D139D374AAA /* Alvi Nastaleeq Regular.ttf */; };
+		1F11DA2B32044DA6AFD978C1 /* Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7918C729B024AE1B3801D33 /* Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf */; };
+		E189081767B4445FB94ABBE8 /* Jameel Noori Nastaleeq Kasheeda.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F4D63FC93894554A8883C2E /* Jameel Noori Nastaleeq Kasheeda.ttf */; };
+		B468B2AC5428402582F18D37 /* Nafees Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF90F3397284F43A0F7FA87 /* Nafees Regular.ttf */; };
+		94E34BB62DD0476F835BF039 /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = 017F7A84F5664E0A90C7A4AF /* index.ts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +32,13 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = seyara/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = seyara/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		A461407F739B436F9C632A56 /* Pak Nastaleeq Regular.otf */ = {isa = PBXFileReference; name = "Pak Nastaleeq Regular.otf"; path = "../src/assets/fonts/Pak Nastaleeq Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5562BE5074FB4881A4D4F08B /* AA Sameer Almas Regular.ttf */ = {isa = PBXFileReference; name = "AA Sameer Almas Regular.ttf"; path = "../src/assets/fonts/AA Sameer Almas Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4F16E45388AB4D139D374AAA /* Alvi Nastaleeq Regular.ttf */ = {isa = PBXFileReference; name = "Alvi Nastaleeq Regular.ttf"; path = "../src/assets/fonts/Alvi Nastaleeq Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D7918C729B024AE1B3801D33 /* Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf */ = {isa = PBXFileReference; name = "Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf"; path = "../src/assets/fonts/Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1F4D63FC93894554A8883C2E /* Jameel Noori Nastaleeq Kasheeda.ttf */ = {isa = PBXFileReference; name = "Jameel Noori Nastaleeq Kasheeda.ttf"; path = "../src/assets/fonts/Jameel Noori Nastaleeq Kasheeda.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CCF90F3397284F43A0F7FA87 /* Nafees Regular.ttf */ = {isa = PBXFileReference; name = "Nafees Regular.ttf"; path = "../src/assets/fonts/Nafees Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		017F7A84F5664E0A90C7A4AF /* index.ts */ = {isa = PBXFileReference; name = "index.ts"; path = "../src/assets/fonts/index.ts"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +89,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				01CB7ACD109C468697ED6A4F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -97,6 +112,21 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		01CB7ACD109C468697ED6A4F /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				A461407F739B436F9C632A56 /* Pak Nastaleeq Regular.otf */,
+				5562BE5074FB4881A4D4F08B /* AA Sameer Almas Regular.ttf */,
+				4F16E45388AB4D139D374AAA /* Alvi Nastaleeq Regular.ttf */,
+				D7918C729B024AE1B3801D33 /* Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf */,
+				1F4D63FC93894554A8883C2E /* Jameel Noori Nastaleeq Kasheeda.ttf */,
+				CCF90F3397284F43A0F7FA87 /* Nafees Regular.ttf */,
+				017F7A84F5664E0A90C7A4AF /* index.ts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -161,6 +191,13 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				67AD22BE18C0DE14211F0D21 /* PrivacyInfo.xcprivacy in Resources */,
+				C0B57384E5B04BBF9BD425EF /* Pak Nastaleeq Regular.otf in Resources */,
+				5619417E123346C09AA0AB57 /* AA Sameer Almas Regular.ttf in Resources */,
+				66646746BA3E4A93B7A23DDF /* Alvi Nastaleeq Regular.ttf in Resources */,
+				1F11DA2B32044DA6AFD978C1 /* Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf in Resources */,
+				E189081767B4445FB94ABBE8 /* Jameel Noori Nastaleeq Kasheeda.ttf in Resources */,
+				B468B2AC5428402582F18D37 /* Nafees Regular.ttf in Resources */,
+				94E34BB62DD0476F835BF039 /* index.ts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

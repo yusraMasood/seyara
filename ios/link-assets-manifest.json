@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/AA Sameer Almas Regular.ttf",
+      "sha1": "4ce9929bed60d81daf0375dfac2d247e32e30bd4"
+    },
+    {
+      "path": "src/assets/fonts/Alvi Nastaleeq Regular.ttf",
+      "sha1": "b83643d5a56c2bbf90ba10c62969b3afe67378ed"
+    },
+    {
+      "path": "src/assets/fonts/Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf",
+      "sha1": "4ef6626ac0c8d44311ac534adefc9a06efc39255"
+    },
+    {
+      "path": "src/assets/fonts/Jameel Noori Nastaleeq Kasheeda.ttf",
+      "sha1": "d65900524be6524ed17f232c3d5bbc88095a3bdf"
+    },
+    {
+      "path": "src/assets/fonts/Nafees Regular.ttf",
+      "sha1": "3bba86b6fb55426ecfcd015b6bd81c685c02c6ac"
+    },
+    {
+      "path": "src/assets/fonts/Pak Nastaleeq Regular.otf",
+      "sha1": "a746d5625fe71fc96a21a3ec963a77c1c96b8c2b"
+    },
+    {
+      "path": "src/assets/fonts/index.ts",
+      "sha1": "b0897ce3d0397d692521c0fa308736fb1d68eec0"
+    }
+  ]
+}
