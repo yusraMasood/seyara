@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React from "react";
 import {
   KeyboardAvoidingView,
   Platform,
@@ -9,51 +9,19 @@ import {
 } from "react-native";
 import { RichEditor, RichToolbar } from "react-native-pell-rich-editor";
 import ViewShot from "react-native-view-shot";
+
 import { colors, themeShadow } from "../../utils/appTheme";
 import { vh, vw } from "../../utils/dimensions";
-
 import { BUTTON } from "./Buttons";
 import { toolbarActions } from "./ToolbarConfig";
-import {
-  injectFont,
-  saveAsImage,
-  createPdfWithHTML,
-  onInsertImage,
-  onPressAddLink,
-  onLinkPress,
-} from "./EditorUtils";
+import { saveAsImage, createPdfWithHTML, onInsertImage, onPressAddLink, onLinkPress } from "./EditorUtils";
 import ColorPickerModal from "../Modals/ColorPicker";
 import FontPickerModal from "../Modals/FontpickerModal";
+import FontSizePickerModal from "../Modals/FontSizeModal";
+import { useRichTextController } from "./useRichTextController";
 
 export default function RichTextEditorScreen() {
-  const [selectedColor, setSelectedColor] = useState("#111");
-  const [fontModalVisible, setFontModalVisible] = useState(false);
-  const [colorModalVisible, setColorModalVisible] = useState(false);
-  const [selectedFont, setSelectedFont] = useState("Jameel");
-
-  const richRef = useRef<any>(null);
-  const viewShotRef = useRef<any>(null);
-  const [html, setHtml] = useState("<p><br/></p>");
-
-  useEffect(() => {
-    injectFont(richRef);
-  }, []);
-
-  const onSetTextColor = useCallback((color: string) => {
-    setSelectedColor(color);
-    richRef.current?.setForeColor(color);
-    richRef.current?.focusContentEditor();
-    setColorModalVisible(false);
-  }, []);
-
-  const onSetFontFamily = useCallback((fontName: string) => {
-    setSelectedFont(fontName);
-    richRef.current?.commandDOM(`
-      document.execCommand('styleWithCSS', false, true);
-      document.execCommand('fontName', false, '${fontName}');
-    `);
-    richRef.current?.focusContentEditor();
-  }, []);
+  const ctrl = useRichTextController();
 
   return (
     <KeyboardAvoidingView
@@ -61,77 +29,80 @@ export default function RichTextEditorScreen() {
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
       <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+
+        {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>Seyara</Text>
         </View>
 
+        {/* Toolbar */}
         <View style={styles.toolbarWrapper}>
           <RichToolbar
-            editor={richRef}
+            editor={ctrl.richRef}
             actions={toolbarActions}
-            onPressAddImage={() => onInsertImage(richRef)}
-            onInsertLink={() => onPressAddLink(richRef)}
+            onPressAddImage={() => onInsertImage(ctrl.richRef)}
+            onInsertLink={() => onPressAddLink(ctrl.richRef)}
             selectedIconTint="#111"
             iconTint="#6b7280"
             iconSize={vw * 5}
             style={styles.toolbar}
             iconMap={{
               customAction: () => (
-                <View
-                  key={selectedColor}
-                  style={[styles.colorIcon, { backgroundColor: selectedColor }]}
-                />
+                <View style={[styles.colorIcon, { backgroundColor: ctrl.selectedColor }]} />
               ),
               fontFamily: () => (
-                <Text style={{ fontFamily: selectedFont, fontSize: vw * 4 }}>F</Text>
+                <Text style={{ fontFamily: ctrl.selectedFont, fontSize: vw * 4 }}>F</Text>
+              ),
+              fontSize: () => (
+                <Text style={{ fontSize: vw * 4, fontWeight: "600" }}>{ctrl.selectedFontSize}</Text>
               ),
             }}
-            fontFamily={() => setFontModalVisible(true)}
-            customAction={() => setColorModalVisible(true)}
-            fontSize={() => setFontModalVisible(true)}
+            fontFamily={() => ctrl.toggleModal("font", true)}
+            customAction={() => ctrl.toggleModal("color", true)}
+            fontSize={() => ctrl.toggleModal("fontSize", true)}
           />
         </View>
 
-        <ViewShot ref={viewShotRef} style={styles.editorCard}>
+        {/* Editor */}
+        <ViewShot ref={ctrl.viewShotRef} style={styles.editorCard}>
           <RichEditor
-            key={selectedFont}
-            ref={richRef}
+            key={ctrl.selectedFont}
+            ref={ctrl.richRef}
             style={styles.editor}
             placeholder="Start typing…"
-            initialContentHTML={html}
+            initialContentHTML={ctrl.html}
             editorStyle={{
+              contentCSSText: `font-family: '${ctrl.selectedFont}', sans-serif;`,
               backgroundColor: colors.white,
               color: colors.black,
               placeholderColor: "#9aa3ac",
-              contentCSSText: `
-                font-size:16px;
-                line-height:1.5;
-                font-family: '${selectedFont}', sans-serif !important;
-                padding:12px;
-                height:${vh * 50}px;
-                background-color:${colors.white};
-                color:${colors.black};
-              `,
             }}
-            onChange={setHtml}
+            onChange={ctrl.setHtml}
             onLink={onLinkPress}
           />
         </ViewShot>
 
+        {/* Save Buttons */}
         <View style={styles.row}>
-          <BUTTON label="Save as PNG" onPress={() => saveAsImage(viewShotRef)} />
-          <BUTTON label="Save as PDF" onPress={() => createPdfWithHTML(html)} />
+          <BUTTON label="Save as PNG" onPress={() => saveAsImage(ctrl.viewShotRef)} />
+          <BUTTON label="Save as PDF" onPress={() => createPdfWithHTML(ctrl.html)} />
         </View>
 
+        {/* Modals */}
         <ColorPickerModal
-          visible={colorModalVisible}
-          onClose={() => setColorModalVisible(false)}
-          onSelectColor={onSetTextColor}
+          visible={ctrl.modals.color}
+          onClose={() => ctrl.toggleModal("color", false)}
+          onSelectColor={ctrl.onSetTextColor}
         />
         <FontPickerModal
-          visible={fontModalVisible}
-          onClose={() => setFontModalVisible(false)}
-          onSelectFont={onSetFontFamily}
+          visible={ctrl.modals.font}
+          onClose={() => ctrl.toggleModal("font", false)}
+          onSelectFont={ctrl.onSetFontFamily}
+        />
+        <FontSizePickerModal
+          visible={ctrl.modals.fontSize}
+          onClose={() => ctrl.toggleModal("fontSize", false)}
+          onSelectSize={ctrl.onSetFontSize}
         />
       </ScrollView>
     </KeyboardAvoidingView>
