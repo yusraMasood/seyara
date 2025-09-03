@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     ...themeShadow,
   },
-  editor: { minHeight: vh * 50 },
+  editor: { minHeight: vh * 100 },
   toolbar: { backgroundColor: colors.white },
   row: {
     flexDirection: "row",

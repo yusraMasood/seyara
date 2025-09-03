@@ -67,37 +67,76 @@ export const createPdfWithHTML = async (html: string) => {
   }
 };
 
+
 export const onInsertImage = async (richRef: any) => {
   try {
-    const result = await launchImageLibrary({
-      mediaType: "photo",
+    const res = await launchImageLibrary({
+      mediaType: 'photo',
       quality: 0.7,
       includeBase64: true,
+      maxWidth: 1600,   // limit size to avoid super huge base64 strings
+      maxHeight: 1600,
     });
 
-    if (result.assets && result.assets.length > 0) {
-      const asset = result.assets[0];
+    const asset = res?.assets?.[0];
+    if (!asset) return;
 
-      if (asset.uri?.startsWith("file://")) {
-        richRef.current?.insertImage(asset.uri, "");
+    // 1) Network URL -> insert directly
+    if (asset.uri?.startsWith('http')) {
+      richRef.current?.insertImage(asset.uri, 'max-width:100%;height:auto;');
+      return;
+    }
+
+    // 2) Base64 provided by picker -> insert data URI
+    if (asset.base64 && asset.type) {
+      const dataUri = `data:${asset.type};base64,${asset.base64}`;
+      richRef.current?.insertImage(dataUri, 'max-width:100%;height:auto;');
+      return;
+    }
+
+    // 3) content:// or other local uri -> copy to cache and try:
+    let origUri = asset.uri;
+    if (!origUri) throw new Error('No URI from picker');
+
+    // For Android content:// URIs, copy to cache
+    const destPath = `${RNFS.CachesDirectoryPath}/img_${Date.now()}.jpg`;
+    try {
+      // On Android content URIs, RNFS.copyFile may accept content uri depending on platform & lib versions.
+      await RNFS.copyFile(origUri, destPath);
+    } catch (copyErr) {
+      // try reading directly if copy fails - some devices won't allow copy, we'll attempt read (some URIs need different handling)
+      console.warn('copyFile failed, continuing to attempt read:', copyErr);
+    }
+
+    const fileUri = `file://${destPath}`;
+
+    // Try inserting file:// first (fast). If WebView blocks file://, next step will try base64 fallback.
+    try {
+      richRef.current?.insertImage(fileUri, 'max-width:100%;height:auto;');
+      // wait a fraction, then check the content HTML or let user verify
+      return;
+    } catch (e) {
+      console.warn('insertImage(fileUri) possibly failed, will fallback to base64 read', e);
+    }
+
+    // As robust fallback, read file and insert base64
+    try {
+      const b64 = await RNFS.readFile(destPath, 'base64');
+      const mime = asset.type || 'image/jpeg';
+      const dataUri = `data:${mime};base64,${b64}`;
+      richRef.current?.insertImage(dataUri, 'max-width:100%;height:auto;');
+      return;
+    } catch (readErr) {
+      console.warn('readFile -> base64 failed', readErr);
+      // last resort: if we have asset.uri that is a plain file path (not content://) try that
+      if (origUri.startsWith('file://')) {
+        richRef.current?.insertImage(origUri, 'max-width:100%;height:auto;');
         return;
       }
-
-      if (asset.uri?.startsWith("content://")) {
-        const destPath = `${RNFS.CachesDirectoryPath}/img_${Date.now()}.jpg`;
-        await RNFS.copyFile(asset.uri, destPath);
-        richRef.current?.insertImage(`file://${destPath}`, "");
-        return;
-      }
-
-      if (asset.base64 && asset.type) {
-        const base64Uri = `data:${asset.type};base64,${asset.base64}`;
-        richRef.current?.insertImage(base64Uri, "");
-        return;
-      }
+      throw readErr;
     }
   } catch (e: any) {
-    Alert.alert("Image insert failed", e?.message ?? String(e));
+    Alert.alert('Insert Image failed', e?.message ?? String(e));
   }
 };
 
