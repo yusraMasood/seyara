@@ -51,7 +51,7 @@ export default function RichTextEditorScreen() {
                 <View style={[styles.colorIcon, { backgroundColor: ctrl.selectedColor }]} />
               ),
               fontFamily: () => (
-                <Text style={{ fontFamily: ctrl.selectedFont, fontSize: vw * 4 }}>F</Text>
+                <Text style={{ fontFamily: ctrl.selectedFont, fontSize: vw * 4 }}>{ctrl.selectedFont}</Text>
               ),
               fontSize: () => (
                 <Text style={{ fontSize: vw * 4, fontWeight: "600" }}>{ctrl.selectedFontSize}</Text>
@@ -69,17 +69,9 @@ export default function RichTextEditorScreen() {
             ref={ctrl.richRef}
             style={styles.editor}
             placeholder="Start typing…"
+            styleWithCSS={true}
             initialContentHTML={ctrl.html}
-            editorStyle={{
-              contentCSSText: `
-      font-family: '${ctrl.selectedFont}', sans-serif;
-      font-size: ${ctrl.selectedFontSize}px;
-      line-height: 1.5;
-    `,
-              backgroundColor: colors.white,
-              color: colors.black,
-              placeholderColor: "#9aa3ac",
-            }}
+            editorStyle={ctrl.initialCSSText}
             onChange={ctrl.setHtml}
             onLink={onLinkPress}
           />
@@ -117,9 +109,10 @@ const styles = StyleSheet.create({
   header: { paddingHorizontal: 16, paddingTop: 12, paddingBottom: 8 },
   title: { fontSize: 20, fontWeight: "700", color: "#111" },
   editorCard: {
+    //flex: 1,
     marginHorizontal: vw * 5,
     marginTop: vh * 2,
-    borderRadius: 16,
+    //borderRadius: 16,
     overflow: "hidden",
     ...themeShadow,
   },

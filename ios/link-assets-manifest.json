@@ -6,8 +6,24 @@
       "sha1": "4ce9929bed60d81daf0375dfac2d247e32e30bd4"
     },
     {
+      "path": "src/assets/fonts/AASameerAlmas.woff",
+      "sha1": "13798d8fdb85e7ad5024aa13271bc0f389a42ffb"
+    },
+    {
+      "path": "src/assets/fonts/AASameerAlmas.woff2",
+      "sha1": "27026bef8122e2dbdf8d24766ab245c386e986c3"
+    },
+    {
       "path": "src/assets/fonts/Alvi Nastaleeq Regular.ttf",
       "sha1": "b83643d5a56c2bbf90ba10c62969b3afe67378ed"
+    },
+    {
+      "path": "src/assets/fonts/AlviNastaleeq.woff",
+      "sha1": "7627e1ccd0fa14d4307b12b4182b6a6156d2c3d2"
+    },
+    {
+      "path": "src/assets/fonts/AlviNastaleeq.woff2",
+      "sha1": "9fa53b714d5f96345e65e20712b6cf769870082e"
     },
     {
       "path": "src/assets/fonts/Faiz Lahori Nastaleeq Regular - [UrduFonts.com].ttf",
@@ -18,8 +34,24 @@
       "sha1": "d65900524be6524ed17f232c3d5bbc88095a3bdf"
     },
     {
+      "path": "src/assets/fonts/JameelNooriNastaleeqKasheeda.woff",
+      "sha1": "887d92d200912dc8fb18118cbd37e941fca80ead"
+    },
+    {
+      "path": "src/assets/fonts/JameelNooriNastaleeqKasheeda.woff2",
+      "sha1": "3a6b71f08dc2cb1d2bf4681ca50576a935ff13ae"
+    },
+    {
       "path": "src/assets/fonts/Nafees Regular.ttf",
       "sha1": "3bba86b6fb55426ecfcd015b6bd81c685c02c6ac"
+    },
+    {
+      "path": "src/assets/fonts/NafeesWebNaskh.woff",
+      "sha1": "18ae58564e5506541e969189cf9aa7ff08cce17d"
+    },
+    {
+      "path": "src/assets/fonts/NafeesWebNaskh.woff2",
+      "sha1": "70b9e762e2fd455d76c5727bb05bfd30626a583b"
     },
     {
       "path": "src/assets/fonts/Pak Nastaleeq Regular.otf",
@@ -28,6 +60,10 @@
     {
       "path": "src/assets/fonts/index.ts",
       "sha1": "b0897ce3d0397d692521c0fa308736fb1d68eec0"
+    },
+    {
+      "path": "src/assets/fonts/styles.ts",
+      "sha1": "9a82b78cde6dbc5c580a4024cfbff6cf931dae45"
     }
   ]
 }

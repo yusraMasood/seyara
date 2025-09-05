@@ -19,6 +19,15 @@
 		E189081767B4445FB94ABBE8 /* Jameel Noori Nastaleeq Kasheeda.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F4D63FC93894554A8883C2E /* Jameel Noori Nastaleeq Kasheeda.ttf */; };
 		B468B2AC5428402582F18D37 /* Nafees Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF90F3397284F43A0F7FA87 /* Nafees Regular.ttf */; };
 		94E34BB62DD0476F835BF039 /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = 017F7A84F5664E0A90C7A4AF /* index.ts */; };
+		4D46D6AAEE324437A1EFEF10 /* AASameerAlmas.woff in Resources */ = {isa = PBXBuildFile; fileRef = 9983F1D4E0EF4B5D83F9CC40 /* AASameerAlmas.woff */; };
+		201CCADAA78F4436B49E08B5 /* AASameerAlmas.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 034E36A26A2F4607926414FD /* AASameerAlmas.woff2 */; };
+		F9BDF94EBAE94041818F4E11 /* AlviNastaleeq.woff in Resources */ = {isa = PBXBuildFile; fileRef = 1CD4A847C754443C8D09A8BF /* AlviNastaleeq.woff */; };
+		4BF78281C51E4F54910F3F33 /* AlviNastaleeq.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 3310197B3C7E4EBD8314DD6F /* AlviNastaleeq.woff2 */; };
+		788E9DB4DA41458785CC782E /* JameelNooriNastaleeqKasheeda.woff in Resources */ = {isa = PBXBuildFile; fileRef = FA759DA9EEEA4F60B79E9684 /* JameelNooriNastaleeqKasheeda.woff */; };
+		63599B2EC28F4939BF2AC096 /* JameelNooriNastaleeqKasheeda.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 4208144DAE7548C2B547DD5F /* JameelNooriNastaleeqKasheeda.woff2 */; };
+		98639B979158451396F33066 /* NafeesWebNaskh.woff in Resources */ = {isa = PBXBuildFile; fileRef = 532CE4B641EC4D93A14CF31D /* NafeesWebNaskh.woff */; };
+		B2246D0E5A7645919AA49104 /* NafeesWebNaskh.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = AA6AFDAD0DF84D92B0433C1E /* NafeesWebNaskh.woff2 */; };
+		FC1C61733D6E41F88BE55B73 /* styles.ts in Resources */ = {isa = PBXBuildFile; fileRef = 15FA87CC2CCA4B11A53E3D29 /* styles.ts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +48,15 @@
 		1F4D63FC93894554A8883C2E /* Jameel Noori Nastaleeq Kasheeda.ttf */ = {isa = PBXFileReference; name = "Jameel Noori Nastaleeq Kasheeda.ttf"; path = "../src/assets/fonts/Jameel Noori Nastaleeq Kasheeda.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		CCF90F3397284F43A0F7FA87 /* Nafees Regular.ttf */ = {isa = PBXFileReference; name = "Nafees Regular.ttf"; path = "../src/assets/fonts/Nafees Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		017F7A84F5664E0A90C7A4AF /* index.ts */ = {isa = PBXFileReference; name = "index.ts"; path = "../src/assets/fonts/index.ts"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9983F1D4E0EF4B5D83F9CC40 /* AASameerAlmas.woff */ = {isa = PBXFileReference; name = "AASameerAlmas.woff"; path = "../src/assets/fonts/AASameerAlmas.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		034E36A26A2F4607926414FD /* AASameerAlmas.woff2 */ = {isa = PBXFileReference; name = "AASameerAlmas.woff2"; path = "../src/assets/fonts/AASameerAlmas.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1CD4A847C754443C8D09A8BF /* AlviNastaleeq.woff */ = {isa = PBXFileReference; name = "AlviNastaleeq.woff"; path = "../src/assets/fonts/AlviNastaleeq.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3310197B3C7E4EBD8314DD6F /* AlviNastaleeq.woff2 */ = {isa = PBXFileReference; name = "AlviNastaleeq.woff2"; path = "../src/assets/fonts/AlviNastaleeq.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FA759DA9EEEA4F60B79E9684 /* JameelNooriNastaleeqKasheeda.woff */ = {isa = PBXFileReference; name = "JameelNooriNastaleeqKasheeda.woff"; path = "../src/assets/fonts/JameelNooriNastaleeqKasheeda.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4208144DAE7548C2B547DD5F /* JameelNooriNastaleeqKasheeda.woff2 */ = {isa = PBXFileReference; name = "JameelNooriNastaleeqKasheeda.woff2"; path = "../src/assets/fonts/JameelNooriNastaleeqKasheeda.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		532CE4B641EC4D93A14CF31D /* NafeesWebNaskh.woff */ = {isa = PBXFileReference; name = "NafeesWebNaskh.woff"; path = "../src/assets/fonts/NafeesWebNaskh.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AA6AFDAD0DF84D92B0433C1E /* NafeesWebNaskh.woff2 */ = {isa = PBXFileReference; name = "NafeesWebNaskh.woff2"; path = "../src/assets/fonts/NafeesWebNaskh.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		15FA87CC2CCA4B11A53E3D29 /* styles.ts */ = {isa = PBXFileReference; name = "styles.ts"; path = "../src/assets/fonts/styles.ts"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +141,15 @@
 				1F4D63FC93894554A8883C2E /* Jameel Noori Nastaleeq Kasheeda.ttf */,
 				CCF90F3397284F43A0F7FA87 /* Nafees Regular.ttf */,
 				017F7A84F5664E0A90C7A4AF /* index.ts */,
+				9983F1D4E0EF4B5D83F9CC40 /* AASameerAlmas.woff */,
+				034E36A26A2F4607926414FD /* AASameerAlmas.woff2 */,
+				1CD4A847C754443C8D09A8BF /* AlviNastaleeq.woff */,
+				3310197B3C7E4EBD8314DD6F /* AlviNastaleeq.woff2 */,
+				FA759DA9EEEA4F60B79E9684 /* JameelNooriNastaleeqKasheeda.woff */,
+				4208144DAE7548C2B547DD5F /* JameelNooriNastaleeqKasheeda.woff2 */,
+				532CE4B641EC4D93A14CF31D /* NafeesWebNaskh.woff */,
+				AA6AFDAD0DF84D92B0433C1E /* NafeesWebNaskh.woff2 */,
+				15FA87CC2CCA4B11A53E3D29 /* styles.ts */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -198,6 +225,15 @@
 				E189081767B4445FB94ABBE8 /* Jameel Noori Nastaleeq Kasheeda.ttf in Resources */,
 				B468B2AC5428402582F18D37 /* Nafees Regular.ttf in Resources */,
 				94E34BB62DD0476F835BF039 /* index.ts in Resources */,
+				4D46D6AAEE324437A1EFEF10 /* AASameerAlmas.woff in Resources */,
+				201CCADAA78F4436B49E08B5 /* AASameerAlmas.woff2 in Resources */,
+				F9BDF94EBAE94041818F4E11 /* AlviNastaleeq.woff in Resources */,
+				4BF78281C51E4F54910F3F33 /* AlviNastaleeq.woff2 in Resources */,
+				788E9DB4DA41458785CC782E /* JameelNooriNastaleeqKasheeda.woff in Resources */,
+				63599B2EC28F4939BF2AC096 /* JameelNooriNastaleeqKasheeda.woff2 in Resources */,
+				98639B979158451396F33066 /* NafeesWebNaskh.woff in Resources */,
+				B2246D0E5A7645919AA49104 /* NafeesWebNaskh.woff2 in Resources */,
+				FC1C61733D6E41F88BE55B73 /* styles.ts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

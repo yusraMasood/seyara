@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useRef, useEffect, useCallback } from "react";
 import { injectFont } from "./EditorUtils";
+import { jameelNooriFont } from "../../assets/fonts/styles";
 
 export const useRichTextController = () => {
   const richRef = useRef<any>(null);
@@ -61,6 +63,10 @@ export const useRichTextController = () => {
 		toggleModal("fontSize", false);
 	}, [wrapSelectionWithStyle]);
 
+
+const fontFamily = 'Jameel Noori Nastaleeq';
+const initialCSSText = { initialCSSText: `${jameelNooriFont}`, contentCSSText: `font-family: ${fontFamily}` }
+
   return {
     richRef,
     viewShotRef,
@@ -69,6 +75,7 @@ export const useRichTextController = () => {
     selectedColor,
     selectedFont,
     selectedFontSize,
+		initialCSSText,
     modals,
     toggleModal,
     onSetTextColor,
